@@ -244,10 +244,24 @@ function IsfoundUser(){
       }
         return false ;
     }
-
+  function IsfoundBank(BankN){
+      for (let index = 0; index < DataNumbers.length; index++) {
+        if(BankN==dataBanks[index].Bank){
+          return true;
+        }
+      }
+        return false ;
+    }
+  function IsfoundMarket(Market){
+      for (let index = 0; index < DataNumbers.length; index++) {
+        if(Market==datamarketed[index].Marketed){
+          return true;
+        }
+      }
+        return false ;
+    }
   function FoundName(NumberE){
     for (let index = 0; index < dataCompany.length; index++) {
-      
       if(NumberE.charAt(0)==dataCompany[index].CompanyCode){ 
         return dataCompany[index].CompanyName;
       }
@@ -298,12 +312,14 @@ function IstrueDataInform(){
   let Weight=document.getElementById("Weight");
   if(DATE.value==""){DATE.style.border="2px solid #ff0000";return false}else{DATE.style.border="none";}
   if(marketed.value==""){marketed.style.border="2px solid #ff0000";return false}else{marketed.style.border="none";}
+  if(IsfoundMarket(marketed.value)==false){marketed.style.border="2px solid #ff0000";return false}else{marketed.style.border="none";}
   if(Customer.value==""){Customer.style.border="2px solid #ff0000";return false}else{Customer.style.border="none";}
   if(Phone.value==""){Phone.style.border="2px solid #ff0000";return false}else{Phone.style.border="none";}
   if(Number.value==""){Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
   if(IsfoundNumber(Number.value)==true) {Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
   if(Method.value==""){Method.style.border="2px solid #ff0000";  return false}else{Method.style.border="none";}
   if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
+  if(IsfoundBank(Bank.value)==false){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
   if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
   if(COD.value==""){COD.style.border="2px solid #ff0000";return false}else{COD.style.border="none";}
   if(Weight.value==""){Weight.style.border="2px solid #ff0000";return false}else{Weight.style.border="none";}
