@@ -238,14 +238,14 @@ function IsfoundUser(){
   }
   function IsfoundNumber(NumberE){
       for (let index = 0; index < DataNumbers.length; index++) {
-        if(NumberE==DataNumbers[index].Number){
+        if(NumberE== DataNumbers[index].Number){
           return true;
         }
       }
         return false ;
     }
   function IsfoundBank(BankN){
-      for (let index = 0; index < DataNumbers.length; index++) {
+      for (let index = 0; index < dataBanks.length; index++) {
         if(BankN==dataBanks[index].Bank){
           return true;
         }
@@ -253,7 +253,7 @@ function IsfoundUser(){
         return false ;
     }
   function IsfoundMarket(Market){
-      for (let index = 0; index < DataNumbers.length; index++) {
+      for (let index = 0; index < datamarketed.length; index++) {
         if(Market==datamarketed[index].Marketed){
           return true;
         }
