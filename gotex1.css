@@ -256,14 +256,6 @@ padding-right: 5px;
         width: 20%;
        } */
 
-.login-box .user-box select {
-font-size: 14px;
-color: var(--FontColor);
-border: 1px solid var(--FontColor);
-outline: none;
-background: transparent;
-direction: rtl;
-}
 
 .BranchName_Div label,.BranchMain_Div label{
     padding: 4px 0px;
