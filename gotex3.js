@@ -5,21 +5,27 @@ const Banks = 'Banks';
 const marketed="marketed";
 const Users = 'Users';
 const Numbers = 'Users';
+const Customers = 'Customers';
 let query = encodeURIComponent('Select *');
 let urlCompany = `${base}&sheet=${Company}&tq=${query}`;
 let urlBanks = `${base}&sheet=${Banks}&tq=${query}`;
 let urlmarketed = `${base}&sheet=${marketed}&tq=${query}`;
 let urlNumbers= `${base}&sheet=${Users}&tq=${query}`;
 let urlUsers = `${base}&sheet=${Users}&tq=${query}`;
+let urlCustomers = `${base}&sheet=${Customers}&tq=${query}`;
 let dataCompany = [];
 let dataBanks = [];
 let datamarketed = [];
 let DataUsers = [];
 let DataNumbers=[];
+let DataCustomers=[];
 document.addEventListener('DOMContentLoaded', init)
 function init() {
   ConvertMode();
   LoadUser();
+  let XX =new Date();
+  document.getElementById("DATE1").value=XX.toISOString().slice(0,10);
+  
   if (typeof(Storage) !== "undefined") {
     if( localStorage.getItem("PassWord")!==null){
       document.getElementById("User_PassWord").value=localStorage.getItem("PassWord");
@@ -36,6 +42,7 @@ function init() {
     loadBanks();
     loadMarketed();
     LoadNumers();
+    LoadCustomers();
 }
 function LoadUser(){
   DataUsers=[];
@@ -152,8 +159,42 @@ function loadMarketed(){
   })
 }
 
-
-
+function LoadCustomers(){
+  DataCustomers = [];
+  fetch(urlCustomers)
+  .then(res => res.text())
+  .then(rep => {
+      const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
+      const colz3 = [];
+      jsonData.table.cols.forEach((heading) => {
+          if (heading.label) {
+              let column3 = heading.label;
+              colz3.push(column3);
+          }
+      })
+      jsonData.table.rows.forEach((rowData) => {
+          const row3 = {};
+          colz3.forEach((ele, ind) => {
+              row3[ele] = (rowData.c[ind] != null) ? rowData.c[ind].v : '';
+          })
+          DataCustomers.push(row3);
+      })
+      loadCustomersInput();
+  })
+}
+  function loadCustomersInput(){
+    let Customer= document.getElementById("listCus");
+    let A_myDropdown3
+    for (let index = 0; index < DataCustomers.length; index++) {
+      if(DataCustomers[index].Num!=""){
+        A_myDropdown3=document.createElement("option");
+        A_myDropdown3.id="Cust_" + index;
+        A_myDropdown3.value=DataCustomers[index].NameCus;
+        A_myDropdown3.style.textAlign="center";
+        Customer.appendChild(A_myDropdown3);
+      }
+    }
+  }
   function loadMarketedInput(){
     let marketedBrowsers= document.getElementById("marketedBrowsers");
     let A_myDropdown3
@@ -238,30 +279,16 @@ function IsfoundUser(){
   }
   function IsfoundNumber(NumberE){
       for (let index = 0; index < DataNumbers.length; index++) {
-        if(NumberE== DataNumbers[index].Number){
+        if(NumberE==DataNumbers[index].Number){
           return true;
         }
       }
         return false ;
     }
-  function IsfoundBank(BankN){
-      for (let index = 0; index < dataBanks.length; index++) {
-        if(BankN==dataBanks[index].Bank){
-          return true;
-        }
-      }
-        return false ;
-    }
-  function IsfoundMarket(Market){
-      for (let index = 0; index < datamarketed.length; index++) {
-        if(Market==datamarketed[index].Marketed){
-          return true;
-        }
-      }
-        return false ;
-    }
+
   function FoundName(NumberE){
     for (let index = 0; index < dataCompany.length; index++) {
+      
       if(NumberE.charAt(0)==dataCompany[index].CompanyCode){ 
         return dataCompany[index].CompanyName;
       }
@@ -295,7 +322,7 @@ function Sign_In(){
     localStorage.setItem("PassWord",DataUsers[Employee_Index].PassWord);
     document.getElementById("loginPage").style.display="none";
     document.getElementById("MainPage").style.display="flex";
-    // location.reload();
+    location.reload();
   }
 }
 function IstrueDataInform(){
@@ -304,7 +331,7 @@ function IstrueDataInform(){
   let Bank=document.getElementById("Bank");
   let COD=document.getElementById("COD");
   let State=document.getElementById("State");
-  let DATE=document.getElementById("DATE");
+  let DATE=document.getElementById("DATE1");
   let Customer=document.getElementById("Customer");
   let Number=document.getElementById("Number");
   let Method=document.getElementById("Method");
@@ -312,14 +339,12 @@ function IstrueDataInform(){
   let Weight=document.getElementById("Weight");
   if(DATE.value==""){DATE.style.border="2px solid #ff0000";return false}else{DATE.style.border="none";}
   if(marketed.value==""){marketed.style.border="2px solid #ff0000";return false}else{marketed.style.border="none";}
-  if(IsfoundMarket(marketed.value)==false){marketed.style.border="2px solid #ff0000";return false}else{marketed.style.border="none";}
   if(Customer.value==""){Customer.style.border="2px solid #ff0000";return false}else{Customer.style.border="none";}
   if(Phone.value==""){Phone.style.border="2px solid #ff0000";return false}else{Phone.style.border="none";}
   if(Number.value==""){Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
   if(IsfoundNumber(Number.value)==true) {Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
   if(Method.value==""){Method.style.border="2px solid #ff0000";  return false}else{Method.style.border="none";}
   if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
-  if(IsfoundBank(Bank.value)==false){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
   if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
   if(COD.value==""){COD.style.border="2px solid #ff0000";return false}else{COD.style.border="none";}
   if(Weight.value==""){Weight.style.border="2px solid #ff0000";return false}else{Weight.style.border="none";}
