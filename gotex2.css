@@ -123,20 +123,21 @@ text-align: center;
 .Employee_ID_Div label{
     font-weight: bold;
     width: 32%;
+    text-align: center;
     }
 
 .UserName_Div{
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 30%;
     justify-content:center;
     height: 36px;
     border: solid 1px var(--Row1Color);
     justify-content: space-around;
 }
 
-.UserName_Div input{
-    width: 75%;
+.UserName_Div input ,.UserName_Div select{
+    width: 65%;
     text-align: center;
     font-size: 14px;
     font-weight: 600;
@@ -148,7 +149,8 @@ text-align: center;
 }
 .UserName_Div label{
     font-weight: bold;
-    width: 20%;
+    width: 30%;
+    text-align: center;
     }
 
 
@@ -251,11 +253,19 @@ padding-right: 5px;
     text-align: center;
     border-radius: 25px;
     }
-    
+    .MethodCC1{
+        background-color:gray !important;
+        }
     /* .user-box button {
         width: 20%;
        } */
-
+img{
+    width: 120px;
+    height: 96px;
+    position: fixed;
+    right: 3px;
+    top: -16px;
+}
 
 .BranchName_Div label,.BranchMain_Div label{
     padding: 4px 0px;
@@ -280,7 +290,7 @@ transition: 0.5s;
 
 
 
- #Moon, #Sun ,#Moon1, #Sun1{
+ #Moon, #Sun {
 position: fixed;
 top: 15px;
 left: 15px;
