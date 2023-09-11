@@ -85,26 +85,26 @@ function ChangeMode(){
 }
 function GetDayName(key){
   switch (key) {
-    case 1:
-    return "الاحد";
-    case 2:
-    return "الاثنين";
-    case 3:
-    return "الثلاثاء";
-    case 4:
-    return "الاربعاء";
-    case 5:
-    return "الخميس";
-    case 6:
-    return "الجمعة";
     case 0:
+    return "الاحد";
+    case 1:
+    return "الاثنين";
+    case 2:
+    return "الثلاثاء";
+    case 3:
+    return "الاربعاء";
+    case 4:
+    return "الخميس";
+    case 5:
+    return "الجمعة";
+    case 6:
     return "السبت";
   }
 }
 function SelectPi(){
   let Method =document.getElementById("Method");
   let COD =document.getElementById("COD");
-  if(Method.value=="مدفوع"){
+  if(Method.value=="آجل"){
     COD.className="MethodCC1";
     COD.disabled=true;
   }else{
