@@ -421,7 +421,6 @@ function IstrueDataInform(){
   let marketed=document.getElementById("marketed");
   let Phone=document.getElementById("Phone");
   let Bank=document.getElementById("Bank");
-  let COD=document.getElementById("COD");
   let State=document.getElementById("State");
   let DATE=document.getElementById("DATE1");
   let Customer=document.getElementById("Customer");
@@ -448,7 +447,6 @@ function IstrueDataInform(){
       if(Method.value==""){Method.style.border="2px solid #ff0000";  return false}else{Method.style.border="none";}
       if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
       if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
-      if(COD.value==""){COD.style.border="2px solid #ff0000";return false}else{COD.style.border="none";}
       if(Weight.value==""){Weight.style.border="2px solid #ff0000";return false}else{Weight.style.border="none";}
       if(State.value==""){State.style.border="2px solid #ff0000";return false}else{State.style.border="none";}
       return true
