@@ -40,6 +40,7 @@ function init() {
       let Employee_ID=document.getElementById("Employee_ID")
       Employee_ID.value =localStorage.getItem("Employee_Index");
       document.getElementById("Employee_Name").value=localStorage.getItem("User_Name");
+      document.getElementById("ImgHD").src="https://drive.google.com/uc?export=view&id=1QLZhYDa-7QPePU0lLGbc-NppD4sWev9u"
     }
   }
     loadCompany();
