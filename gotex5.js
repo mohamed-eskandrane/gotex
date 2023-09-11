@@ -1,31 +1,35 @@
 const sheetId = '1RZJanKfSEW_oiM5nnDiTvAJyjo-40qpOWNqk7j-Ef-0';
 const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
-const Company = 'Company';
-const Banks = 'Banks';
-const marketed="marketed";
-const Users = 'Users';
-const Numbers = 'Users';
-const Customers = 'Customers';
 let query = encodeURIComponent('Select *');
+const Company = 'Company';
 let urlCompany = `${base}&sheet=${Company}&tq=${query}`;
-let urlBanks = `${base}&sheet=${Banks}&tq=${query}`;
-let urlmarketed = `${base}&sheet=${marketed}&tq=${query}`;
-let urlNumbers= `${base}&sheet=${Users}&tq=${query}`;
-let urlUsers = `${base}&sheet=${Users}&tq=${query}`;
-let urlCustomers = `${base}&sheet=${Customers}&tq=${query}`;
 let dataCompany = [];
+const Banks = 'Banks';
+let urlBanks = `${base}&sheet=${Banks}&tq=${query}`;
 let dataBanks = [];
+const marketed="marketed";
+let urlmarketed = `${base}&sheet=${marketed}&tq=${query}`;
 let datamarketed = [];
+const Users = 'Users';
+let urlUsers = `${base}&sheet=${Users}&tq=${query}`;
 let DataUsers = [];
+const Numbers = 'DataNumbers';
+let urlNumbers= `${base}&sheet=${Numbers}&tq=${query}`;
 let DataNumbers=[];
+const Customers = 'Customers';
+let urlCustomers = `${base}&sheet=${Customers}&tq=${query}`;
 let DataCustomers=[];
+
 document.addEventListener('DOMContentLoaded', init)
 function init() {
   ConvertMode();
   LoadUser();
-  let XX =new Date();
-  document.getElementById("DATE1").value=XX.toISOString().slice(0,10);
-  
+  let Ti =new Date().getTime().valueOf();
+  let Ti1 =new Date().getTimezoneOffset().valueOf()
+  let Ti2 =Ti1*60*1000 * -1 + Ti
+  document.getElementById("Day1").value =GetDayName(new Date().getDay());
+  document.getElementById("Time1").valueAsDate =new Date(Ti2);
+  document.getElementById("DATE1").valueAsDate =new Date(Ti2);
   if (typeof(Storage) !== "undefined") {
     if( localStorage.getItem("PassWord")!==null){
       document.getElementById("User_PassWord").value=localStorage.getItem("PassWord");
@@ -44,6 +48,70 @@ function init() {
     LoadNumers();
     LoadCustomers();
 }
+function ChangeMode(){
+  let MainForm=document.getElementById("MainForm");
+  let selectT=document.getElementById("selectT");
+  let Three_Div1_1=document.getElementById("Three_Div1_1");
+  let Three_Div1_2=document.getElementById("Three_Div1_2");
+  let Div1=document.getElementById("Div1");
+  let Div2=document.getElementById("Div2");
+  let Div3=document.getElementById("Div3");
+  let Div4=document.getElementById("Div4");
+  let Ti =new Date().getTime().valueOf();
+  let Ti1 =new Date().getTimezoneOffset().valueOf()
+  let Ti2 =Ti1*60*1000 * -1 + Ti
+  if(selectT.value=="1"){
+    MainForm.reset()
+    Three_Div1_1.style.display="flex";
+    Three_Div1_2.style.display="flex";
+     Div1.style.display="flex";
+     Div2.style.display="flex";
+     Div3.style.display="flex";
+     Div4.style.display="flex";
+  }else{
+    Three_Div1_1.style.display="none";
+    Three_Div1_2.style.display="flex";
+    Div1.style.display="none";
+    Div2.style.display="none";
+    Div3.style.display="none";
+    Div4.style.display="none";
+  }
+  document.getElementById("Day1").value =GetDayName(new Date(Ti2).getDay());
+  document.getElementById("Time1").valueAsDate =new Date(Ti2);
+  document.getElementById("DATE1").valueAsDate =new Date(Ti2);
+  document.getElementById("Employee_ID").value =localStorage.getItem("Employee_Index");
+  document.getElementById("Employee_Name").value=localStorage.getItem("User_Name");
+}
+function GetDayName(key){
+  switch (key) {
+    case 1:
+    return "الاحد";
+    case 2:
+    return "الاثنين";
+    case 3:
+    return "الثلاثاء";
+    case 4:
+    return "الاربعاء";
+    case 5:
+    return "الخميس";
+    case 6:
+    return "الجمعة";
+    case 0:
+    return "السبت";
+  }
+}
+function SelectPi(){
+  let Method =document.getElementById("Method");
+  let COD =document.getElementById("COD");
+  if(Method.value=="مدفوع"){
+    COD.className="MethodCC1";
+    COD.disabled=true;
+  }else{
+    COD.disabled=false;
+    COD.className="";
+  }
+}
+
 function LoadUser(){
   DataUsers=[];
   fetch(urlUsers)
@@ -87,8 +155,23 @@ function LoadNumers(){
           })
           DataNumbers.push(rowUNumbers);
       })
+      loadNumber2sInput();
   })
 }
+
+function loadNumber2sInput(){
+    let Customer= document.getElementById("ListS");
+    let A_myDropdown3
+    for (let index = 0; index < DataNumbers.length; index++) {
+      if(DataNumbers[index].Num!=""){
+        A_myDropdown3=document.createElement("option");
+        A_myDropdown3.id="NUM2_" + index;
+        A_myDropdown3.value=DataNumbers[index].Number;
+        A_myDropdown3.style.textAlign="center";
+        Customer.appendChild(A_myDropdown3);
+      }
+    }
+  }
 
 function loadCompany(){
   dataCompany = [];
@@ -241,8 +324,6 @@ function ConvertModeToSun(){
   localStorage.setItem("FColor", 1);
   document.getElementById("Moon").style.display="inline-block";
   document.getElementById("Sun").style.display="none";
-  document.getElementById("Moon1").style.display="inline-block";
-  document.getElementById("Sun1").style.display="none";
   document.querySelector(':root').style.setProperty('--FColor', "wheat"); 
   document.querySelector(':root').style.setProperty('--EColor', "white");
   document.querySelector(':root').style.setProperty('--loginColor', "whitesmoke"); 
@@ -254,8 +335,6 @@ function ConvertModeToMoon(){
   localStorage.setItem("FColor", 2);
   document.getElementById("Sun").style.display="inline-block";
   document.getElementById("Moon").style.display="none";
-  document.getElementById("Sun1").style.display="inline-block";
-  document.getElementById("Moon1").style.display="none";
   document.querySelector(':root').style.setProperty('--FColor', "#141e30"); 
   document.querySelector(':root').style.setProperty('--EColor', "#243b55");
   document.querySelector(':root').style.setProperty('--loginColor', "#00000080"); 
@@ -301,8 +380,9 @@ function IsfoundUser(){
     }
       return "" ;
   }
+
+
 function ChangeNumbers(){
-  "".toUpperCase
   let NumberStr=document.getElementById("Number").value
   document.getElementById("CompanyName").value=FoundName(NumberStr)
 }
@@ -325,6 +405,17 @@ function Sign_In(){
     location.reload();
   }
 }
+function CalculateB(){
+  let Customer=document.getElementById("Customer");
+  let BalanceC=document.getElementById("BalanceC");
+  for (let index = 0; index < DataCustomers.length; index++) {
+    if(Customer.value==DataCustomers[index].NameCus) {
+      BalanceC.value=DataCustomers[index].SumCus;
+      return;
+    }
+  }
+  BalanceC.value=0;
+}
 function IstrueDataInform(){
   let marketed=document.getElementById("marketed");
   let Phone=document.getElementById("Phone");
@@ -334,26 +425,48 @@ function IstrueDataInform(){
   let DATE=document.getElementById("DATE1");
   let Customer=document.getElementById("Customer");
   let Number=document.getElementById("Number");
+  let Number2=document.getElementById("Number2");
   let Method=document.getElementById("Method");
   let Amount=document.getElementById("Amount");
   let Weight=document.getElementById("Weight");
-  if(DATE.value==""){DATE.style.border="2px solid #ff0000";return false}else{DATE.style.border="none";}
-  if(marketed.value==""){marketed.style.border="2px solid #ff0000";return false}else{marketed.style.border="none";}
-  if(Customer.value==""){Customer.style.border="2px solid #ff0000";return false}else{Customer.style.border="none";}
-  if(Phone.value==""){Phone.style.border="2px solid #ff0000";return false}else{Phone.style.border="none";}
-  if(Number.value==""){Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
-  if(IsfoundNumber(Number.value)==true) {Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
-  if(Method.value==""){Method.style.border="2px solid #ff0000";  return false}else{Method.style.border="none";}
-  if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
-  if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
-  if(COD.value==""){COD.style.border="2px solid #ff0000";return false}else{COD.style.border="none";}
-  if(Weight.value==""){Weight.style.border="2px solid #ff0000";return false}else{Weight.style.border="none";}
-  if(State.value==""){State.style.border="2px solid #ff0000";return false}else{State.style.border="none";}
-  return true
+  let selectT=document.getElementById("selectT");
+  if(selectT.value=="1"){
+    if(Number.value==0){
+      if( Number2.value=="") {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
+      if(IsfoundNumber(Number2.value)!=true) {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
+      Customer.value=""; Phone.value=""; Method.value="";Bank.value=""; Amount.value=""; COD.value=""; Weight.value="";    State.value="";
+      return true
+    }else{
+      if(DATE.value==""){DATE.style.border="2px solid #ff0000";return false}else{DATE.style.border="none";}
+      if(Customer.value==""){Customer.style.border="2px solid #ff0000";return false}else{Customer.style.border="none";}
+      if(marketed.value==""){marketed.style.border="2px solid #ff0000";return false}else{marketed.style.border="none";}
+      if(Phone.value==""){Phone.style.border="2px solid #ff0000";return false}else{Phone.style.border="none";}
+      if(Number.value==""){Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
+      if(IsfoundNumber(Number.value)==true) {Number.style.border="2px solid #ff0000";return false}else{Number.style.border="none";}
+      if( Number2.value!="") {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
+      if(Method.value==""){Method.style.border="2px solid #ff0000";  return false}else{Method.style.border="none";}
+      if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
+      if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
+      if(COD.value==""){COD.style.border="2px solid #ff0000";return false}else{COD.style.border="none";}
+      if(Weight.value==""){Weight.style.border="2px solid #ff0000";return false}else{Weight.style.border="none";}
+      if(State.value==""){State.style.border="2px solid #ff0000";return false}else{State.style.border="none";}
+      return true
+    }
+  }else{
+    if(Customer.value==""){Customer.style.border="2px solid #ff0000";return false}else{Customer.style.border="none";}
+    if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
+    return true
+  }
 }
 
 function onsubmitForm(){
   if(IstrueDataInform()===true){
+    let Amount=document.getElementById("Amount");
+    if(Method.value=="آجل"){
+      Amount.value= Amount.value * -1
+    }else{
+      Amount.value= Math.abs(Amount.value) 
+    }
   let MainForm=document.getElementById("MainForm");
   let Employee_Index=localStorage.getItem("Employee_Index");
   var w = window.open('', 'form_target', 'width=600, height=400');
