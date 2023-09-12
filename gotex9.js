@@ -104,7 +104,7 @@ function GetDayName(key){
 function SelectPi(){
   let Method =document.getElementById("Method");
   let COD =document.getElementById("COD");
-  if(Method.value=="آجل"){
+  if(Method.value=="مدفوع"){
     COD.className="MethodCC1";
     COD.disabled=true;
   }else{
