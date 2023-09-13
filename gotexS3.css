@@ -21,8 +21,10 @@
         --SettingTable:column-reverse;
         --flexaa:center;
         --HightForm2:88%;
-
-        
+    }
+    #Branch_Main_form label {
+        padding: 0;
+        margin-top: -12%;
     }
   }
   @media screen and (min-width: 300px) and (max-width: 349px) {
@@ -35,6 +37,11 @@
         --SettingTable:column-reverse;
         --flexaa:center;
         --HightForm2:88%;
+        --ButtonH:40px;
+    }
+    #Branch_Main_form label {
+        padding: 0;
+        margin-top: -8%;
     }
   }
   @media screen and (min-width: 350px) and (max-width: 399px) {
@@ -47,6 +54,11 @@
         --SettingTable:column-reverse;
         --flexaa:center;
         --HightForm2:88%;
+        --ButtonH:40px;
+    }
+    #Branch_Main_form label {
+        padding: 0;
+        margin-top: -4%;
     }
   }
   @media screen and (min-width: 400px) and (max-width: 424px) {
@@ -59,6 +71,11 @@
         --SettingTable:column-reverse;
         --flexaa:center;
         --HightForm2:88%;
+        --ButtonH:40px;
+    }
+    #Branch_Main_form label {
+        padding: 0;
+        margin-top: -4%;
     }
   }
 @media screen and (min-width: 425px) and (max-width: 450px) {
@@ -71,6 +88,11 @@
         --SettingTable:column-reverse;
         --flexaa:center;
         --HightForm2:88%;
+        --ButtonH:40px;
+    }
+    #Branch_Main_form label {
+        padding: 0;
+        margin-top: -4%;
     }
   }
 @media screen and (min-width: 451px)and (max-width: 650px)  {
@@ -87,6 +109,7 @@
         --Shadow:0 0px 10px var(--FontColor);
         --marg :-0.5%;
         --BackColo:var(--loginColor);
+        --ButtonH:80%;
     }
 }
 
@@ -104,6 +127,7 @@
         --Shadow:0 0px 10px var(--FontColor);
         --marg :-0.5%;
         --BackColo:var(--loginColor);
+        --ButtonH:80%;
     }
 }
 @media screen and (min-width: 801px)  {
@@ -120,6 +144,7 @@
         --Shadow:0 0px 10px var(--FontColor);
         --marg :-0.5%;
         --BackColo:var(--loginColor);
+        --ButtonH:80%;
     }
 }
 
@@ -512,7 +537,7 @@ border-color: var(--FColor);
 
 }
 #Branch_name_form button,#Branch_Main_form button , #Supplier_form button{
-height: 80%;
+height: var(--ButtonH);
 width: 70%;
 }
 #Branch_name_form .BB0,#Branch_Main_form .BB0,#Supplier_form .BB0{
