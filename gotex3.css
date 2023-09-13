@@ -12,7 +12,7 @@
 }
 @media screen and (min-width: 300px) and (max-width: 450px) {
     :root{
-        --Width:97%;
+        --Width:99%;
         --FrWidth:35%;
         --BWidth:35%;
         --LWidth:35%;
@@ -21,7 +21,7 @@
   }
 @media screen and (min-width: 451px)and (max-width: 650px)  {
     :root{
-        --Width:92%;
+        --Width:98%;
         --FrWidth:35%;
         --BWidth:35%;
         --LWidth:35%;
@@ -30,7 +30,7 @@
 
 @media screen and (min-width: 651px)and (max-width: 800px)  {
     :root{
-        --Width:87%;
+        --Width:96%;
         --FrWidth:40%;
         --BWidth:35%;
         --LWidth:35%;
@@ -38,7 +38,7 @@
 }
 @media screen and (min-width: 801px)  {
     :root{
-        --Width:87%;
+        --Width:94%;
         --FrWidth:45%;
         --BWidth:35%;
         --LWidth:35%;
@@ -67,20 +67,18 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border-top: solid 1px var(--Row1Color);
-    border-right: solid 1px var(--Row1Color);
-    border-left: solid 1px var(--Row1Color);
-    height: 50px;
+    border: solid 1px var(--Row1Color);
+    height: 46px;
 
 }
 .login-box {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 50%;
+    top: 53%;
     left: 50%;
     width: var(--Width);
-    height: 82%;
+    height: 88%;
     padding: 1%;
     transform: translate(-50%, -50%);
     background-color: var(--loginColor);
@@ -116,28 +114,28 @@ form{
 border-radius: 25px;
 border: none;
 background-color: var(--Row1BackColor);
-width: 60%;
+width: 50%;
 height: 25px;
 text-align: center;
 }
 .Employee_ID_Div label{
     font-weight: bold;
-    width: 32%;
+    width: 40%;
     text-align: center;
     }
 
 .UserName_Div{
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 60%;
     justify-content:center;
     height: 36px;
     border: solid 1px var(--Row1Color);
     justify-content: space-around;
 }
 
-.UserName_Div input ,.UserName_Div select{
-    width: 65%;
+.UserName_Div input {
+    width: 60%;
     text-align: center;
     font-size: 14px;
     font-weight: 600;
@@ -149,10 +147,9 @@ text-align: center;
 }
 .UserName_Div label{
     font-weight: bold;
-    width: 30%;
+    width: 35%;
     text-align: center;
     }
-
 
 .BranchName_Div,.BranchMain_Div,#Branch_name_form div ,#Branch_Main_form div ,#Supplier_form div{
     display: flex;
@@ -195,15 +192,23 @@ text-align: center;
     flex-direction: row;
     height: 70%;
     justify-content: space-around;
+    margin-left: -0.5%;
 }
 
 .Three_Div .Three_Div1{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 45%;
+    width: 48%;
     justify-content: space-evenly;
- 
+}
+
+.ModeX{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 98%;
+    justify-content: space-evenly;
 }
 
 .Three_Div .Three_Div3{
@@ -312,18 +317,35 @@ border:  var(--Font2Color)  inset 1px;
 background-color: inherit;
 border-radius: 5px;
 width:100% ;
-/*  */
 }
-.BB0 .Buto {
-    background-color:rgb(56, 159, 255);
+.Buto1 {
+    height: 80%;
+    display: inline-block;
+    padding: 6px 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    border:  var(--Font2Color)  inset 1px;
+    background-color: inherit;
+    border-radius: 5px;
     }
 
-.Buto a {   
+.BB0 button{
+    background-color:rgb(13 150 157);
+    }
+    #DivBut1{
+        margin-top: 1%;
+    }
+.Buto a ,.Buto1 a{   
     font-size: 20px;
     margin-right: 5px;
 }
 
-.Buto:hover , .NewBr:hover{
+.Buto:hover , .NewBr:hover,.Buto1:hover{
 background-color: #d3f6f8;
 color: var(--Font3Color);
 border-radius: 5px;
@@ -341,13 +363,16 @@ border: var(--Font2Color) solid 1px;
     margin-top: 5px;
 } 
 
-.BB{
+.BB,.BBM{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
-    width: 100%;
     height:12%;
     align-items: center;
+}
+.BBM{
+    height:56px;
+    
 }
 .BB0{
     display: flex;
