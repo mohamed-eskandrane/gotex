@@ -20,6 +20,7 @@
         --RowWidth:235px;
         --SettingTable:column-reverse;
         --flexaa:center;
+        --HightForm2:88%;
 
         
     }
@@ -33,6 +34,7 @@
         --RowWidth:275px;
         --SettingTable:column-reverse;
         --flexaa:center;
+        --HightForm2:88%;
     }
   }
   @media screen and (min-width: 350px) and (max-width: 399px) {
@@ -44,6 +46,7 @@
         --RowWidth:325px;
         --SettingTable:column-reverse;
         --flexaa:center;
+        --HightForm2:88%;
     }
   }
   @media screen and (min-width: 400px) and (max-width: 424px) {
@@ -55,6 +58,7 @@
         --RowWidth:360px;
         --SettingTable:column-reverse;
         --flexaa:center;
+        --HightForm2:88%;
     }
   }
 @media screen and (min-width: 425px) and (max-width: 450px) {
@@ -66,6 +70,7 @@
         --RowWidth:380px;
         --SettingTable:column-reverse;
         --flexaa:center;
+        --HightForm2:88%;
     }
   }
 @media screen and (min-width: 451px)and (max-width: 650px)  {
