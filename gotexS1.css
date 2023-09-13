@@ -20,6 +20,8 @@
         --RowWidth:235px;
         --SettingTable:column-reverse;
         --flexaa:center;
+
+        
     }
   }
   @media screen and (min-width: 300px) and (max-width: 349px) {
@@ -79,6 +81,7 @@
         --Height3:70%;
         --Shadow:0 0px 10px var(--FontColor);
         --marg :-0.5%;
+        --BackColo:var(--loginColor);
     }
 }
 
@@ -95,6 +98,7 @@
         --Height3:70%;
         --Shadow:0 0px 10px var(--FontColor);
         --marg :-0.5%;
+        --BackColo:var(--loginColor);
     }
 }
 @media screen and (min-width: 801px)  {
@@ -110,6 +114,7 @@
         --Height3:70%;
         --Shadow:0 0px 10px var(--FontColor);
         --marg :-0.5%;
+        --BackColo:var(--loginColor);
     }
 }
 
@@ -150,7 +155,7 @@ form{
     height: var(--HightForm2) ;
     padding: 1%;
     transform: translate(-50%, -50%);
-    background-color: var(--loginColor);
+    background-color: var(--BackColo);
     box-sizing: border-box;
     box-shadow:  var(--Shadow);
     border-radius: 10px;
