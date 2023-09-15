@@ -27,7 +27,7 @@ function init() {
   let Ti =new Date().getTime().valueOf();
   let Ti1 =new Date().getTimezoneOffset().valueOf()
   let Ti2 =Ti1*60*1000 * -1 + Ti
-  document.getElementById("Day1").value =GetDayName(new Date(Ti2).getUTCDay());
+  document.getElementById("Day1").value =GetDayName(new Date(Ti2-3*60*1000).getUTCDay());
   document.getElementById("Time1").valueAsDate =new Date(Ti2);
   document.getElementById("DATE1").valueAsDate =new Date(Ti2);
   document.getElementById("ImgHD").src="https://drive.google.com/uc?export=view&id=1QLZhYDa-7QPePU0lLGbc-NppD4sWev9u"
