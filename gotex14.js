@@ -543,6 +543,15 @@ function onsubmitForm(){
 } 
 
 // ******************CustForm
+function IdPhoneTrue(){
+  let Phone=document.getElementById("PhoneCus");
+  for (let index = 0; index < DataCustomers.length; index++) {
+    if(Phone.value==DataCustomers[index].PhoneCus) {
+      return true;
+    }
+  }
+  return false;
+}
 function IstrueDataInform1(){
   if(DataUsers[localStorage.getItem("Employee_Index")].AddCustomer=="yes"){
   let NameCus=document.getElementById("NameCus");
@@ -550,7 +559,8 @@ function IstrueDataInform1(){
   let FirstBalance=document.getElementById("FirstBalance");
       if(NameCus.value==""){NameCus.style.border="2px solid #ff0000";return false}else{NameCus.style.border="none";}
       if(PhoneCus.value==""){PhoneCus.style.border="2px solid #ff0000";return false}else{PhoneCus.style.border="none";}
-      if(FirstBalance.value==""){FirstBalance.style.border="2px solid #ff0000";return false}else{FirstBalance.style.border="none";}
+      if(IdPhoneTrue(PhoneCus.value)==true){PhoneCus.style.border="2px solid #ff0000";return false}else{PhoneCus.style.border="none";}
+    if(FirstBalance.value==""){FirstBalance.style.border="2px solid #ff0000";return false}else{FirstBalance.style.border="none";}
        return true
   }
 }
