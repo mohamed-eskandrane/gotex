@@ -1,4 +1,4 @@
-const sheetId = '1Z0Sinmsi_24zqz9eBzTqakcwLedc7BEP4_0FJMSv_ZI/';
+const sheetId = '1Z0Sinmsi_24zqz9eBzTqakcwLedc7BEP4_0FJMSv_ZI';
 const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
 let query = encodeURIComponent('Select *');
 const Company = 'Company';
