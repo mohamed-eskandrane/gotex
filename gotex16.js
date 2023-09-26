@@ -522,13 +522,14 @@ function IstrueDataInform(){
 function onsubmitForm(){
   if(IstrueDataInform()===true){
     let Amount=document.getElementById("Amount");
+    let Method=document.getElementById("Method");
     if(Method.value=="آجل"){
       Amount.value= Amount.value * -1
     }else{
       Amount.value= Math.abs(Amount.value) 
     }
     if(localStorage.getItem("SelectValue")!="1"){
-      Method.value=="آجل"
+      Method.value="آجل"
     }
   let MainForm=document.getElementById("MainForm");
   var w = window.open('', 'form_target', 'width=600, height=400');
