@@ -527,6 +527,9 @@ function onsubmitForm(){
     }else{
       Amount.value= Math.abs(Amount.value) 
     }
+    if(localStorage.getItem("SelectValue")!="1"){
+      Method.value=="آجل"
+    }
   let MainForm=document.getElementById("MainForm");
   var w = window.open('', 'form_target', 'width=600, height=400');
   MainForm.target = 'form_target';
