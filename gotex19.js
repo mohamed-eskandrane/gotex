@@ -119,7 +119,7 @@ function ChangeMode(Va){
     Three_Div1_1.children.item(6).style.display="none";
    Three_Div1_1.parentElement.style.flexDirection="column-reverse";
     Three_Div1_1.className="ModeX";
-    Three_Div1_1.style.height="74%";
+    Three_Div1_2.style.height="74%";
     Three_Div1_2.className="ModeX";
     MainPage.style.top="44%";
     DivBut.style.marginTop="1%";
