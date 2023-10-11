@@ -100,7 +100,7 @@ function ChangeMode(Va){
     Three_Div1_1.children.item(6).style.display="flex";
    Three_Div1_1.parentElement.style.flexDirection="row";
     Three_Div1_1.className="Three_Div1";
-    Three_Div1_1.style.height="100%";
+    Three_Div1_2.style.height="100%";
     Three_Div1_2.className="Three_Div1";
     MainPage.style.top="53%";
     DivBut.style.marginTop="0px";
