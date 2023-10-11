@@ -509,8 +509,7 @@ function IstrueDataInform(){
     if(number.value==0){
       if( Number2.value=="") {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
       if(IsfoundNumber(Number2.value)!=true) {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
-      if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
-      number.value=0;Customer.value=""; Phone.value=""; Method.value=""; Amount.value=""; COD.value=""; Weight.value="";    State.value="";
+      number.value=0;Customer.value=""; Phone.value=""; Method.value="";Bank.value==""; Amount.value=""; COD.value=""; Weight.value="";    State.value="";
       return true
     }else{
       if(DATE.value==""){DATE.style.border="2px solid #ff0000";return false}else{DATE.style.border="none";}
@@ -534,6 +533,7 @@ function IstrueDataInform(){
   }else{
     if(Customer.value==""){Customer.style.border="2px solid #ff0000";return false}else{Customer.style.border="none";}
     if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
+    if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
     return true
   }
 }
