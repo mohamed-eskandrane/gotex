@@ -92,7 +92,15 @@ function ChangeMode(Va){
   if( Va=="1"){
     MainForm.reset()
     localStorage.setItem("AcForm","MainForm1");
-    Three_Div1_1.style.display="flex";
+    for (let index = 0; index < 4; index++) {
+    Three_Div1_1.children.item(index).style.display="flex"
+    }
+    Three_Div1_1.children.item(4).style.marginTop="0";
+   Three_Div1_1.children.item(5).style.display="none";
+    Three_Div1_1.children.item(6).style.display="none";
+   Three_Div1_1.parentElement.style.flexDirection="row-reverse";
+    Three_Div1_1.className="Three_Div1";
+    Three_Div1_1.style.height="100%";
     Three_Div1_2.className="Three_Div1";
     MainPage.style.top="53%";
     DivBut.style.marginTop="0px";
@@ -103,7 +111,15 @@ function ChangeMode(Va){
      Div4.style.display="flex";
   }else{
     localStorage.setItem("AcForm","MainForm2");
-    Three_Div1_1.style.display="none";
+    for (let index = 0; index < 4; index++) {
+     Three_Div1_1.children.item(index).style.display="none"
+    }
+    Three_Div1_1.children.item(4).style.marginTop="-3%";
+   Three_Div1_1.children.item(5).style.display="none";
+    Three_Div1_1.children.item(6).style.display="none";
+   Three_Div1_1.parentElement.style.flexDirection="column-reverse";
+    Three_Div1_1.className="ModeX";
+    Three_Div1_1.style.height="74%";
     Three_Div1_2.className="ModeX";
     MainPage.style.top="44%";
     DivBut.style.marginTop="1%";
