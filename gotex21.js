@@ -509,7 +509,8 @@ function IstrueDataInform(){
     if(number.value==0){
       if( Number2.value=="") {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
       if(IsfoundNumber(Number2.value)!=true) {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
-      number.value=0;Customer.value=""; Phone.value=""; Method.value="";Bank.value=""; Amount.value=""; COD.value=""; Weight.value="";    State.value="";
+      if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
+      number.value=0;Customer.value=""; Phone.value=""; Method.value=""; Amount.value=""; COD.value=""; Weight.value="";    State.value="";
       return true
     }else{
       if(DATE.value==""){DATE.style.border="2px solid #ff0000";return false}else{DATE.style.border="none";}
@@ -522,7 +523,9 @@ function IstrueDataInform(){
       if(IsfoundNumber(number.value)==true) {number.style.border="2px solid #ff0000";return false}else{number.style.border="none";}
       if( Number2.value!="") {Number2.style.border="2px solid #ff0000";return false}else{Number2.style.border="none";}
       if(Method.value==""){Method.style.border="2px solid #ff0000";  return false}else{Method.style.border="none";}
+      if(Method.value=="مدفوع"){
       if(Bank.value==""){Bank.style.border="2px solid #ff0000";  return false}else{Bank.style.border="none";}
+      }
       if(Amount.value==""){Amount.style.border="2px solid #ff0000";return false}else{Amount.style.border="none";}
       if(Weight.value==""){Weight.style.border="2px solid #ff0000";return false}else{Weight.style.border="none";}
       if(State.value==""){State.style.border="2px solid #ff0000";return false}else{State.style.border="none";}
