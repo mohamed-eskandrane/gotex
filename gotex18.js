@@ -96,9 +96,9 @@ function ChangeMode(Va){
     Three_Div1_1.children.item(index).style.display="flex"
     }
     Three_Div1_1.children.item(4).style.marginTop="0";
-   Three_Div1_1.children.item(5).style.display="none";
-    Three_Div1_1.children.item(6).style.display="none";
-   Three_Div1_1.parentElement.style.flexDirection="row-reverse";
+   Three_Div1_1.children.item(5).style.display="flex";
+    Three_Div1_1.children.item(6).style.display="flex";
+   Three_Div1_1.parentElement.style.flexDirection="row";
     Three_Div1_1.className="Three_Div1";
     Three_Div1_1.style.height="100%";
     Three_Div1_2.className="Three_Div1";
